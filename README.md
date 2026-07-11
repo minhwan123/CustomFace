@@ -120,6 +120,11 @@ python app.py
 - **파일 업로드** 또는 **사진 촬영** 버튼으로 이미지 입력
 - 체크박스로 왜곡할 부위와 눈 회전 여부 선택 후 **생성/적용** 클릭
 
+## 참고 자료
+
+- [프로젝트 보고서 (PDF)](docs/materials/HCI_Project_Report_4조.pdf)
+- [발표자료 (PDF)](docs/materials/HCI_Project_PPT_4조.pdf)
+
 ## 참고 사항
 
 - `cv2.createThinPlateSplineShapeTransformer`는 `opencv-contrib-python` 패키지가 설치되어 있어야 동작합니다 (`opencv-python`만으로는 동작하지 않음).
