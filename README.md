@@ -1,8 +1,15 @@
 # CustomFace
 
 웹캠으로 촬영한 얼굴 사진을 실시간으로 분석해, 눈·코·입·얼굴형 등 원하는 부위를 과장하고
-카툰(만화) 스타일로 변환해주는 캐리커처 생성기입니다. HCI 수업 팀 프로젝트로 시작되었으며,
-이 저장소는 개인적으로 코드를 정리하고 문서화한 포트폴리오 버전입니다.
+카툰(만화) 스타일로 변환해주는 캐리커처 생성기입니다. 동국대학교 Human-Computer Interaction 수업 팀 프로젝트로 시작되었습니다.
+
+## 데모
+
+<p align="center">
+  <img src="docs/images/cartoon-result.png" width="360" alt="눈 회전 + 카툰 효과가 적용된 최종 결과"/>
+</p>
+
+<p align="center"><sub>눈 부위 확대·회전과 카툰 효과가 함께 적용된 최종 결과물</sub></p>
 
 ## 주요 기능
 
@@ -46,13 +53,19 @@
 감정 일관성 점수 계산 (FER + 코사인 유사도)          ─ test.py
 ```
 
+<p align="center">
+  <img src="docs/images/landmark-extraction.png" width="360" alt="MediaPipe Face Mesh로 추출한 468개 얼굴 랜드마크"/>
+</p>
+
+<p align="center"><sub>MediaPipe Face Mesh로 추출한 468개 얼굴 랜드마크 (녹색 점) — 이 좌표를 기준으로 부위별 왜곡이 적용된다</sub></p>
+
 ## 프로젝트 구조
 
 ```
 CustomFace/
-├── main.py                  # CLI 진입점 (전체 파이프라인 순차 실행)
-├── app.py                   # PyQt5 GUI 진입점
-├── pipeline.py               # GUI에서 호출하는 파이프라인 함수 (run_pipeline)
+├── main.py                    # CLI 진입점 (전체 파이프라인 순차 실행)
+├── app.py                     # PyQt5 GUI 진입점
+├── pipeline.py                # GUI에서 호출하는 파이프라인 함수 (run_pipeline)
 ├── capture.py                 # 웹캠 캡처 (얼굴 검출 대기)
 ├── user_input.py              # CLI 터미널 입력 처리
 ├── landmark_extraction.py     # MediaPipe 기반 얼굴 랜드마크 추출
@@ -60,7 +73,7 @@ CustomFace/
 ├── color_utils.py             # 색상 전처리 공통 로직
 ├── preprocessing_eq.py        # 히스토그램 평활화 전처리
 ├── preprocessing_st.py        # 히스토그램 스트레칭 전처리
-├── cartoon.py                  # 카툰 효과
+├── cartoon.py                 # 카툰 효과
 ├── test.py                    # 감정 일관성 점수 계산 (FER)
 ├── requirements.txt
 └── assets/                    # 실행 중 생성되는 캡처/결과 이미지 (git에는 포함하지 않음)
@@ -91,6 +104,12 @@ python main.py
 1. 웹캠 화면에서 얼굴이 인식되면 아무 키나 눌러 캡처 (Esc는 취소)
 2. 터미널 안내에 따라 수정할 부위(눈, 코, 입, 대두)를 쉼표로 입력
 3. 히스토그램 평활화 결과와 스트레칭 결과 중 감정 일관성 점수가 더 높은 쪽이 출력
+
+<p align="center">
+  <img src="docs/images/cli-input.png" width="420" alt="CLI 터미널에서 수정할 부위와 눈 회전 여부를 입력받는 화면"/>
+</p>
+
+<p align="center"><sub>터미널에서 수정할 부위와 눈 회전 여부를 입력받는 화면</sub></p>
 
 ### 3. GUI로 실행
 
