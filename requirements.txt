@@ -1,0 +1,8 @@
+opencv-contrib-python
+mediapipe
+numpy
+matplotlib
+PyQt5
+fer
+scikit-learn
+tensorflow

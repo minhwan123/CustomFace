@@ -1,0 +1,20 @@
+# Byte-compiled / cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Runtime output (captured/generated images)
+assets/origin/
+assets/result/
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+
+# Model weights downloaded by fer/mtcnn at runtime
+*.h5
